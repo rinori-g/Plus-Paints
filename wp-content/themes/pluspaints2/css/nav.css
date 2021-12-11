@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap');
+
+.main-navigation, .ul-navigation {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height:150px;
+  align-items: center;
+  display: flex;
+    justify-content:flex-start;
+}
+
+.main-navigation  .li-navigation {
+  display: block;
+  position: relative;
+  float: left;
+  color:black;
+  font-family:'Montserrat',sans-serif;
+}
+.main-navigation  .li-navigation a {
+  display:flex;
+  flex-direction:inline-block;
+}
+
+.main-navigation  .li-navigation img{
+padding-right:210px;
+}
+.main-navigation .li-navigation a:hover:nth-child(1){
+background:white;
+}
+.main-navigation .select{
+   padding-left:210px;
+}
+.main-navigation .select select{
+    border: 1px solid white;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+.main-navigation  .li-size {
+font-size:19px;
+font-weight:400;
+font-family:'Montserrat';
+
+}
+
+/* This hides the dropdowns */
+
+
+.main-navigation .li-navigation ul { display: none; }
+
+.main-navigation  .li-navigation a {
+  display: block;
+  padding: 1em;
+  padding-left:1.5em;
+  text-decoration: none;
+  white-space: nowrap;
+  color: black;
+}
+
+.main-navigation .li-navigation a:hover { background: white; }
+
+/* Display the dropdown */
+
+
+.main-navigation .li-navigation:hover > ul {
+  display: block;
+  position: absolute;
+  z-index: 10000;
+}
+
+.main-navigation .li-navigation:hover .li-navigation { float: none;}
+
+.main-navigation .li-navigation:hover a { background:  white; }
+
+.main-navigation .li-navigation:hover .li-navigation a:hover { background:#DCDCDC; font-weight:400; }
+
+.main-navigation .li-navigation ul .li-navigation { border-top: 0; }
+.main-navigation .li-navigation .ikona{
+    display:none;
+    
+}
+.main-navigation .li-navigation:hover > a{
+    background:#DCDCDC;
+}
+.main-navigation .li-navigation:hover >a .ikona{
+    display:inline-block;
+
+}
+
+/* Displays second level dropdowns to the right of the first level dropdown */
+
+.main-navigation ul ul {
+  left: 100%;
+  top: 0;
+}
+
+/* Simple clearfix */
+
+
+
+.main-navigation:before,
+.main-navigation:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.main-navigation:after { clear: both; }

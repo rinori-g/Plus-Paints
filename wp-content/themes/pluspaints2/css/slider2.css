@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap');
+
+.carousel-item {
+height: 600px;
+min-height: 350px;
+background: no-repeat center center scroll;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+transition:  opacity 0.7s ease-in-out;
+}
+
+.carousel-indicators{
+display:flex;
+flex-direction: column;
+left:35%;
+width:100px;
+height:300px;
+margin-bottom:0;
+background: #616362;
+border-top-right-radius:10px;
+}
+.carousel-indicators [data-bs-target]{
+text-indent:0px;
+margin-left:20px;
+margin-bottom:40px;
+margin-top: 10px;
+font-size:20px;
+display: flex;
+flex-direction: row;
+width: 0px;
+height: 1px;
+opacity: 1;
+}
+
+.carousel-indicators  .active{
+    opacity: 1;
+    width: 24px;
+    animation: indikator 0.5s;
+    margin-left: 36px;
+}
+
+@keyframes indikator{
+    0%{width: 0px;}
+    100%{width: 24px;}
+    }
+
+
+
+@keyframes captions{
+    0%{margin-left:-1500px;}
+    100%{margin-left:0px;}
+    }
+.carousel-indicators [data-bs-target] .indicatori
+{
+width: 50px;
+margin-top: -12px;
+margin-left: 33px;
+font-size: 22px;
+color: white;
+}
+.carousel-caption{
+background-color:white;
+color:black;
+left:0;
+bottom:0;
+height:300px;
+width:50%;
+
+}
+
+.carousel-caption h5{
+font-size:35px;
+margin-top:40px;
+animation: captions .9s;
+
+}
+.carousel-caption p{
+line-height: 25px;
+font-size:19px;
+animation: captions .9s;
+
+
+}
+.carousel-caption button{
+padding: 15px 20px;
+border: none;
+font-size: 16px;
+color: white;
+font-weight: 600;
+letter-spacing: 1px;
+border-radius: 10px;
+cursor: pointer;
+outline: none;
+background: linear-gradient(90deg, #6B9EBF 0%, #D5ACA9 100%);
+clear: both;
+width: 335px;
+height: 60px;
+animation: captions .9s;
+
+
+}
+.carousel-item .carousel-caption .textalign{
+    width: 80%;
+    float: right;
+    text-align: left;
+}
