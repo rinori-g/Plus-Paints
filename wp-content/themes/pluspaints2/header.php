@@ -31,25 +31,50 @@
 		  <a href="index.php">
 			  <img src="<?php the_field('header_logo','option')?>" class="logo1" alt="">
 			  <img src="<?php the_field('bottom_image_header_logo','option')?>" alt="" class="logo2">
-			</a>
-			</div>
+          </a>
+    </div>
 			<a href="index.php"></a>
 			<div class="nav__btn"><a href="index.php">
         </a><a aria-label="Mobile menu" class="nav-toggle fade"><span></span><span class="mrg"></span><span class="mrg"></span></a>
       </div>
     </div>
       <nav class="menu-toggle">
-        <ul class="nav__menu">
-          <li class="dropdown"><a href="#" class="textcolor1" style="color: rgb(255, 255, 255);">PRODUKTET</a>
+          <?php
+          wp_nav_menu(array(
+              'theme_location' => 'header',
+              'container' => false,
+              'menu_class' => 'nav__menu'
+          ));
+          ?>
+          <!--<ul class="nav__menu">
+              <?php /*foreach (aa1_get_header_menu() as $item) : */?>
+                    <li class="<?php /*if(count($item['sub'])){ echo 'dropdown';}*/?>">
+                        <a href="<?/*= $item['url'] */?>"><?php /*echo $item['name'];*/?></a>
+                        <?php /*if (count($item['sub'])): */?>
+                            <ul>
+                                <?php /*foreach ( $item['sub'] as $subItem ) : */?>
+                                    <a href="<?/*= $subItem['url'] */?>"><?php /*echo $subItem['depth'];*/?></a>
+                                <?php /*endforeach; */?>
+                            </ul>
+                        <?php /*endif; */?>
+
+                    </li>
+              <?php /*endforeach; */?>
+          </ul>-->
+
+
+        <!--<ul class="nav__menu">
+          <li class="dropdown">
+              <a href="#" class="textcolor1" style="color: rgb(255, 255, 255);">PRODUKTET</a>
             <ul>
-             
               <li class="dropdown second-level"><a href="#">Ngjyra për hekur</a>
                 <ul>
-                  <li class="dropdown third-level"><a href="#">Ngjyra likuide</a>
+                  <li class="dropdown third-level">
+                  <a href="#">Ngjyra likuide</a>
                     <ul>
                       <li><a href="polistuccolors.php">Polistuc</a></li>
                       <li><a href="ibavet.php">Ibavet</a></li>
-                      
+
                      </ul>
                   </li>
                   <li class="dropdown third-level"><a href="#">Ngjyra Pluhur</a>
@@ -59,7 +84,6 @@
                       
                      </ul>
                   </li>
-               
                 </ul>
               </li>
               <li class="dropdown second-level"><a href="#">Ngjyra për dru</a>
@@ -75,8 +99,8 @@
                   <li><a href="profix.php">Profix Multichem</a></li>
                 </ul>
               </li>
-              <li class=""><a href="ambalazh.php">Produkte për ambalazhim</a>
-              
+              <li class="">
+                  <a href="ambalazh.php">Produkte për ambalazhim</a>
               </li>
               <li class="dropdown second-level"><a href="#">Pompa për ngjyrosje</a>
                 <ul>
@@ -122,7 +146,7 @@
           <li class="nzc"><a href="contact.php" class="textcolor1" style="color: rgb(255, 255, 255);">KONTAKTI</a></li>
           <li><a href="en" class="textcolor1" style="color: rgb(255, 255, 255);">EN</a></li>
           
-        </ul>
+        </ul>-->
       </nav>
   </div>
 </header>

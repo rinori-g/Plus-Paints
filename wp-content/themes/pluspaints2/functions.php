@@ -51,6 +51,8 @@ if ( ! function_exists( 'pluspaints_setup' ) ) :
 		register_nav_menus(
 			array(
 				'header' => esc_html__( 'Header', 'pluspaints' ),
+				'footer-1' => esc_html__( 'Footer 1', 'pluspaints' ),
+				'footer-2' => esc_html__( 'Footer 2', 'pluspaints' ),
 			)
 		);
 
@@ -196,4 +198,99 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 	
+}
+
+
+function fp_change_post_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = __('Produktet');
+    $submenu['edit.php'][5][0] = __('Produktet');
+    $submenu['edit.php'][10][0] = __('Shto Produkt');
+    $submenu['edit.php'][16][0] = __('Produkt Tags');
+}
+function fp_change_post_object() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = __('Produktet');
+    $labels->singular_name = __('Produkt');
+    $labels->add_new = __('Shto Produkt');
+    $labels->add_new_item = __('Shto Produkt');
+    $labels->edit_item = __('Edito Produkt');
+    $labels->new_item = __('Produktet');
+    $labels->view_item = __('Shiko Produktet');
+    $labels->search_items = __('Kerko Produktet');
+    $labels->not_found = __('Nuk u gjeten produkte');
+    $labels->not_found_in_trash = __('Nuk u gjeten produkte ne shport');
+    $labels->all_items = __('Te gjitha Produktet');
+    $labels->menu_name = __('Produktet');
+    $labels->name_admin_bar = __('Produktet');
+}
+
+add_action( 'admin_menu', 'fp_change_post_label' );
+add_action( 'init', 'fp_change_post_object' );
+
+
+
+function aa1_get_header_menu() {
+    $nav = wp_get_nav_menu_items( get_nav_menu_locations()['header'] );
+
+    $items = [];
+
+    foreach ( $nav as $navItem ) {
+
+        if ( $navItem->menu_item_parent == 0 ) {
+            $current = false;
+            if ( $navItem->object_id == get_queried_object_id() ) {
+                $current = true;
+
+            }
+            $items[] = [
+                'id'     => $navItem->ID,
+                'sub'    => [],
+                'url'    => $navItem->url,
+                'name'   => $navItem->title,
+                'active' => $current,
+            ];
+        } else {
+
+            $id      = array_search( $navItem->menu_item_parent, array_column( $items, 'id' ) );
+            $current = false;
+            if ( $navItem->object_id == get_queried_object_id() ) {
+                $current                = true;
+                $items[ $id ]["active"] = true;
+            }
+            $items[ $id ]['sub'][] = [
+                'id'     => $navItem->object_id,
+                'url'    => $navItem->url,
+                'name'   => $navItem->title,
+                'type'   => $navItem->object,
+                'active' => $current
+            ];
+        }
+    }
+
+    return $items;
+}
+
+
+
+
+
+
+
+
+
+add_action('init', 'register_strings');
+function register_strings()
+{
+    pll_register_string('', 'Jeni konfuz se kush do të kujdeset për punën tuaj?','pluspaints');
+    pll_register_string('', 'Rreth kompanisë','pluspaints');
+    pll_register_string('', 'Linqet e shpejta ','pluspaints');
+    pll_register_string('', 'Linqe','pluspaints');
+    pll_register_string('', 'Na ndiqni','pluspaints');
+    pll_register_string('', 'Copyright © 2021 All rights Reserved by Plus Paints','pluspaints');
+    pll_register_string('', 'Na kontaktoni!','pluspaints');
+
+
 }
