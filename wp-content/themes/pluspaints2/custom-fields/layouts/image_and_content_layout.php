@@ -3,7 +3,7 @@
         <div class="image-content img-left">
                 <img src="<?php the_sub_field('image')?>" alt="">
             </div>
-            <div class="text-content txt-mar txt-right text-up">
+            <div class="text-content txt-mar txt-right text-up text-content2">
                 <?php the_sub_field('content')?>
             </div>
         </div>

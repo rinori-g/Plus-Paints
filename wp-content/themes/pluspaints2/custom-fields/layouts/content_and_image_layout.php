@@ -1,6 +1,6 @@
 <section class="index-content" id="plastifikimipluhur">
         <div class="content content2 container">
-            <div class="text-content txt-mar ">
+            <div class="text-content txt-mar text-content2">
                 <?php the_sub_field('content')?>
             </div>
             <div class="image-content">
