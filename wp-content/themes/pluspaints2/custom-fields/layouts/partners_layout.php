@@ -1,8 +1,8 @@
 <section id="brendet">
     <div class="brendet">
         <div class="brendet-content container">
-            <div class="heading">
-                <p><span>PARTNERËT </span>TANË</p>
+            <div class="heading" style="text-align:left!important;">
+                <p>  <?php the_sub_field('title')?></p>
             </div>
             <div class="logot">
                 <?php if (have_rows('partners')): ?>
