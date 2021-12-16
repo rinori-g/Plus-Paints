@@ -8,7 +8,7 @@
                 <?php if (have_rows('partners')): ?>
                     <?php while (have_rows('partners')) : the_row(); ?>
                         <div class="logo">
-                            <a href="<?php the_sub_field('url');?>"> <img src="./assets/images/ibavet.png" alt=""></a>
+                            <a href="<?php the_sub_field('url');?>"> <img src="<?php the_sub_field('image');?>" alt=""></a>
                         </div>
                     <?php endwhile; ?>
                 <?php endif; ?>

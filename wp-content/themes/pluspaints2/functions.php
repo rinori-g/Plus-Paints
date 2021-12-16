@@ -142,6 +142,7 @@ add_action( 'widgets_init', 'pluspaints_widgets_init' );
  * Enqueue scripts and styles.
  */
 function pluspaints_scripts() {
+	wp_enqueue_style( 'pluspaints-bs4-style', get_template_directory_uri() . '/plugins/bootstrap/bootstrap.min.css', array(), time() );
 	wp_enqueue_style( 'pluspaints-style', get_template_directory_uri() . '/css/style.css', array(), time() );
 	wp_enqueue_style( 'pluspaints-contact', get_template_directory_uri() . '/css/contact.css', array(), time() );
 	wp_enqueue_style( 'pluspaints-slider2', get_template_directory_uri() . '/css/slider2.css', array(), time() );
@@ -149,8 +150,12 @@ function pluspaints_scripts() {
 	wp_enqueue_style( 'pluspaints-main', get_template_directory_uri() . '/css/main.css', array(), time() );
 
 	wp_enqueue_script( 'pluspaints-jqyuery', get_template_directory_uri() . '/js/jquery-3.4.1.js', array(), time(), true );
+	wp_enqueue_script( 'pluspaints-popper', get_template_directory_uri() . '/plugins/popper/popper.min.js', array(), time(), true );
+	wp_enqueue_script( 'pluspaints-bs4', get_template_directory_uri() . '/plugins/bootstrap/bootstrap.min.js', array(), time(), true );
+
 	wp_enqueue_script( 'pluspaints-productfilter', get_template_directory_uri() . '/js/productfilter.js', array(), time(), true );
 	wp_enqueue_script( 'pluspaints-js', get_template_directory_uri() . '/js/script.js', array(), time(), true );
+	wp_enqueue_script( 'pluspaints-main-js', get_template_directory_uri() . '/js/scripts.js', array(), time(), true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -232,46 +237,7 @@ add_action( 'init', 'fp_change_post_object' );
 
 
 
-function aa1_get_header_menu() {
-    $nav = wp_get_nav_menu_items( get_nav_menu_locations()['header'] );
 
-    $items = [];
-
-    foreach ( $nav as $navItem ) {
-
-        if ( $navItem->menu_item_parent == 0 ) {
-            $current = false;
-            if ( $navItem->object_id == get_queried_object_id() ) {
-                $current = true;
-
-            }
-            $items[] = [
-                'id'     => $navItem->ID,
-                'sub'    => [],
-                'url'    => $navItem->url,
-                'name'   => $navItem->title,
-                'active' => $current,
-            ];
-        } else {
-
-            $id      = array_search( $navItem->menu_item_parent, array_column( $items, 'id' ) );
-            $current = false;
-            if ( $navItem->object_id == get_queried_object_id() ) {
-                $current                = true;
-                $items[ $id ]["active"] = true;
-            }
-            $items[ $id ]['sub'][] = [
-                'id'     => $navItem->object_id,
-                'url'    => $navItem->url,
-                'name'   => $navItem->title,
-                'type'   => $navItem->object,
-                'active' => $current
-            ];
-        }
-    }
-
-    return $items;
-}
 
 
 

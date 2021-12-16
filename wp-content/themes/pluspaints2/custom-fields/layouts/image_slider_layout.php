@@ -4,15 +4,10 @@
 <div class="container">
     <div class="gallery js-flickity"
          data-flickity-options='{ "wrapAround": true }'>
-        <?php if (have_rows('partners')): ?>
-            <?php while (have_rows('partners')) : the_row(); ?>
-                <img  class="gallery-cell" src="../assets/images/aboutslide3.jpg" alt="">
+        <?php if (have_rows('images')): ?>
+            <?php while (have_rows('images')) : the_row(); ?>
+                <img  class="gallery-cell" src="<?php the_sub_field('image');?>" alt="">
             <?php endwhile; ?>
         <?php endif; ?>
-  <img  class="gallery-cell" src="http://pluspaints.com/assets/images/gallery/23.jpg" alt="">
-  <img  class="gallery-cell" src="http://pluspaints.com/assets/images/gallery/23.jpg" alt="">
-  <img class="gallery-cell" src="http://pluspaints.com/assets/images/gallery/23.jpg" alt="">
-  <img class="gallery-cell" src="http://pluspaints.com/assets/images/gallery/23.jpg" alt="">
-
-</div>
+    </div>
 </div>  

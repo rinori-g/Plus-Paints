@@ -122,6 +122,7 @@
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.js"></script>
 
 </body>
 </html>
