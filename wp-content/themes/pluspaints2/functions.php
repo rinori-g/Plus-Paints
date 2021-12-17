@@ -149,7 +149,7 @@ function pluspaints_scripts() {
 	wp_enqueue_style( 'pluspaints-nav', get_template_directory_uri() . '/css/nav.css', array(), time() );
 	wp_enqueue_style( 'pluspaints-main', get_template_directory_uri() . '/css/main.css', array(), time() );
 
-	wp_enqueue_script( 'pluspaints-jqyuery', get_template_directory_uri() . '/js/jquery-3.4.1.js', array(), time(), true );
+	wp_enqueue_script( 'pluspaints-jqyuery', get_template_directory_uri() . '/js/jquery-3.4.1.js', array(), time(), false );
 	wp_enqueue_script( 'pluspaints-popper', get_template_directory_uri() . '/plugins/popper/popper.min.js', array(), time(), true );
 	wp_enqueue_script( 'pluspaints-bs4', get_template_directory_uri() . '/plugins/bootstrap/bootstrap.min.js', array(), time(), true );
 
@@ -237,6 +237,28 @@ add_action( 'init', 'fp_change_post_object' );
 
 
 
+function includeWithVariables($filePath, $variables = array(), $print = true)
+{
+    $output = NULL;
+    if(file_exists($filePath)){
+        // Extract the variables to a local namespace
+        extract($variables);
+
+        // Start output buffering
+        ob_start();
+
+        // Include the template file
+        include $filePath;
+
+        // End buffering and return its contents
+        $output = ob_get_clean();
+    }
+    if ($print) {
+        print $output;
+    }
+    return $output;
+
+}
 
 
 
@@ -260,3 +282,76 @@ function register_strings()
 
 
 }
+
+
+
+
+
+
+
+
+
+add_action('wp_footer', 'my_ajax_without_file');
+
+function my_ajax_without_file()
+{ ?>
+
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $('.product-info-description').on('click', function (e) {
+                console.log($(this).attr('data-id'));
+
+
+                ajaxurl = '<?php echo admin_url('admin-ajax.php') ?>';
+                var data = {
+                    'action': 'view_site_description',
+                    'id': $(this).attr('data-id'),
+
+                };
+
+                jQuery.ajax({
+                    url: ajaxurl, // this will point to admin-ajax.php
+                    type: 'POST',
+                    data: data,
+                    success: function (response) {
+                        console.log(response)
+                        $('#empModal .modal-body').html(response)
+                        $('#empModal').modal();
+                    }, error: function () {
+
+                    }
+                });
+            });
+
+
+        });
+    </script>
+<?php }
+function view_site_description(){
+    ?>
+    <div class="product-desc1">
+        <div class="product-img">
+            <img id="myImg6" src=" <?php echo  wp_get_attachment_url( get_post_thumbnail_id($_POST['id']) ); ?>" alt="">
+        </div>
+        <div class="product-content">
+            <?php if (have_rows('specifications',$_POST['id'])): ?>
+                <?php while (have_rows('specifications',$_POST['id'])) : the_row(); ?>
+                    <div class="product-info">
+                        <div class="labeli">
+                            <?php the_sub_field('specification');?>
+                        </div>
+                        <div class="product-data">
+                            <?php the_sub_field('description');?>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php
+    die();
+}
+add_action( 'wp_ajax_view_site_description', 'view_site_description' );
+add_action( 'wp_ajax_nopriv_view_site_description', 'view_site_description' );
+
+

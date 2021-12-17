@@ -20,44 +20,80 @@ $subCategories = get_terms( 'category', array(
 ) );
 ?>
 
+<div style="height : 500px;"></div>
 <main id="primary" class="site-main">
 
+    <ul class="nav nav-pills container">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="pill" href="#productTabMain" role="tab" aria-controls="pills-flamingo" aria-selected="true">Te gjitha</a>
+        </li>
+        <?php foreach ($subCategories as $key => $category):?>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="pill" href="#productTab<?php echo $key;?>" role="tab" aria-controls="pills-flamingo" aria-selected="true"><?php echo $category->name;?></a>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+    <div class="tab-content mt-3">
+        <div class="tab-pane fade show active" id="productTabMain" role="tabpanel" aria-labelledby="flamingo-tab">
+            <?php
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-8 col-lg-6">
-                <ul class="nav nav-pills">
-                    <?php foreach ($subCategories as $key => $category):?>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#productTab<?php echo $key;?>" role="tab" aria-controls="pills-flamingo" aria-selected="true"><?php echo $category->name;?></a>
-                        </li>
-                    <?php endforeach; ?>
-                </ul>
-                <div class="tab-content mt-3">
-                    <?php foreach ($subCategories as $key=>  $category):?>
-                        <div class="tab-pane fade" id="productTab<?php echo $key;?>" role="tabpanel" aria-labelledby="">
+            $posts = get_posts([
+                'category' => get_queried_object_id()
+            ]);
+            ?>
+            <section class="products">
 
+                <div class="product container">
+                    <?php foreach ($posts as $post):?>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="<?php echo  wp_get_attachment_url( get_post_thumbnail_id(get_sub_field('product')) ); ?>" alt="" data-id="1" class="polistucinfo ">
+                            </div>
+                            <div class="product-desc">
+                                <p data-id="<?php echo $post->ID; ?>" class="product-info-description "><?php echo get_the_title($post->ID)?></p>
+                            </div>
 
                         </div>
                     <?php endforeach; ?>
-
-                    <!--<div class="tab-pane fade show active" id="flamingo" role="tabpanel" aria-labelledby="flamingo-tab">
-                        Flamingos usually stand on one leg while the other is tucked beneath their bodies. The reason for this behaviour is not fully understood. One theory is that standing on one leg allows the birds to conserve more body heat, given that they spend a significant amount of time wading in cold water.
-                    </div>
-                    <div class="tab-pane fade" id="cuckoo" role="tabpanel" aria-labelledby="profile-tab">
-                        The cuckoos are generally medium-sized slender birds. Most species live in trees, though a sizeable minority are ground-dwelling. The family has a cosmopolitan distribution, with the majority of species being tropical.
-                    </div>
-                    <div class="tab-pane fade" id="ostrich" role="tabpanel" aria-labelledby="ostrich-tab">
-                        The common ostrich is farmed around the world, particularly for its feathers, which are decorative and are also used as feather dusters. Its skin is used for leather products and its meat is marketed commercially, with its leanness a common marketing point.
-                    </div>
-                    <div class="tab-pane fade" id="tropicbird" role="tabpanel" aria-labelledby="tropicbird-tab">
-                        Tropicbirds range in size from 76 cm to 102 cm in length and 94 cm to 112 cm in wingspan. Their plumage is predominantly white, with elongated central tail feathers. The three species have different combinations of black markings on the face, back, and wings. Their bills are large, powerful and slightly decurved.
-                    </div>-->
                 </div>
-            </div>
-        </div>
-    </div>
 
+            </section>
+
+
+        </div>
+        <?php foreach ($subCategories as $key=>  $category):?>
+            <div class="tab-pane fade" id="productTab<?php echo $key;?>" role="tabpanel" aria-labelledby="">
+                <?php
+
+                $posts = get_posts([
+                    'category' => $category->term_id
+                ]);
+                ?>
+
+
+                <section class="products">
+
+                    <div class="product container">
+                        <?php foreach ($posts as $post):?>
+                            <div class="product-card">
+                                <div class="product-image">
+                                    <img src="<?php echo  wp_get_attachment_url( get_post_thumbnail_id(get_sub_field('product')) ); ?>" alt="" data-id="1" class="polistucinfo ">
+                                </div>
+                                <div class="product-desc">
+                                    <p data-id="<?php echo $post->ID; ?>" class="product-info-description "><?php echo get_the_title($post->ID)?></p>
+                                </div>
+
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+
+                </section>
+
+            </div>
+        <?php endforeach; ?>
+
+
+    </div>
 
 </main>
 

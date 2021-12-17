@@ -21,12 +21,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" />
 -->
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <?php wp_head(); ?>
 
 </head>
-
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+
 <div id="page" class="site">
 
 <header class="fx" id="colorheader">
@@ -45,9 +49,71 @@
     </div>
       <nav class="menu-toggle">
           <?php
+
+          class My_Walker_Nav_Menu extends Walker_Nav_Menu {
+              function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0)
+              {
+
+                  global $wp_query;
+                  $indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+
+                  $class_names = $value = '';
+
+                  $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+                  $classes[] = 'menu-item-' . $item->ID;
+
+                  $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
+
+                  // Check our custom has_children property.here is the points
+                  if(in_array('menu-item-has-children', $classes ) && $depth == 0) {
+                      // Your Code
+                      $class_names = ' class="dropdown"';
+                  } elseif(in_array('menu-item-has-children', $classes ) && $depth == 1) {
+                  // Your Code
+                  $class_names = ' class="dropdown second-level"';
+                  }
+                  elseif(in_array('menu-item-has-children', $classes ) && $depth == 2) {
+                      // Your Code
+                      $class_names = ' class=" dropdown third-level"';
+                  }
+                  else {
+                      $class_names = ' class="' . esc_attr( $class_names ) . '"';
+                  }
+
+
+
+                  $id = apply_filters( 'nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args );
+                  $id = strlen( $id ) ? ' id="' . esc_attr( $id ) . '"' : '';
+
+                  $output .= $indent . '<li' . $id . $value . $class_names .'>';
+
+                  $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
+                  $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
+                  $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
+                  $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
+
+                  $item_output = $args->before;
+
+
+                  $item_output .= '<a'. $attributes .'>';
+                  $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+                  $item_output .= '</a>';
+                  $item_output .= $args->after;
+
+                  $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+
+
+              }
+              function start_lvl(&$output, $depth = 0, $args = null) {
+                  $indent = str_repeat("\t", $depth);
+                  $output .= "\n$indent<ul class=\"\">\n";
+              }
+          }
+
+
           wp_nav_menu(array(
               'theme_location' => 'header',
-              'container' => false,
+              'walker' => new My_Walker_Nav_Menu(),
               'menu_class' => 'nav__menu'
           ));
           ?>

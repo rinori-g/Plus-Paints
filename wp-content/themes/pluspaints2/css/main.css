@@ -437,15 +437,15 @@ header {
         position: absolute;
         top: 0;
         right: auto;
-        left: 285px;
+        left: 100%;
         opacity: 1;
         visibility: visible
     }
     .nav__menu .dropdown .third-level:hover>ul {
-        left: 179px;
+        left: 100%;
     }
     .nav__menu .dropdown .thirdd:hover>ul {
-        left: 360px;
+        left: 100%;
     }
     .nav__menu .dropdown .dropdown ul {
         position: absolute;

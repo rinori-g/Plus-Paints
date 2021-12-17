@@ -12,16 +12,16 @@
 ?>
 
 
-<div class="techsupport">
-        <div class="support" onclick="document.getElementById('id01').style.display='block'">
-            <div class="heading" id="myBtn">
-            MBËSHTETJA TEKNIKE
-            </div>
-            <div class="desc">
-            Jeni përdorues profesionist apo keni nevojë për këshilla teknike?<strong> Na kontaktoni!</strong>
+    <div class="techsupport">
+            <div class="support" onclick="document.getElementById('id01').style.display='block'">
+                <div class="heading" id="myBtn">
+                MBËSHTETJA TEKNIKE
+                </div>
+                <div class="desc">
+                Jeni përdorues profesionist apo keni nevojë për këshilla teknike?<strong> Na kontaktoni!</strong>
+                </div>
             </div>
         </div>
-    </div>
 
     <section class="footer11">
         <div class="footer-content ">
@@ -87,23 +87,11 @@
                           <?php while (have_rows('footer_social_media','option')) : the_row(); ?>
                               <div class="icon">
                                   <a href="https://www.facebook.com/pluspaintss" target="_blank">
-                                      <i class="fab fa-facebook-f" style="color:white;"></i>
+                                      <?php the_sub_field('icon');?>
                                   </a>
                               </div>
                           <?php endwhile; ?>
                       <?php endif; ?>
-
-
-                    <div class="icon">
-                        <a href="https://www.instagram.com/plus_paints/" target="_blank">
-                        <i class="fab fa-instagram" style="color:white;"></i>
-                        </a>
-                    </div>
-                    <div class="icon">
-                        <a href="https://www.linkedin.com/company/74482555" target="_blank">
-                        <i class="fab fa-linkedin" style="color:white;"></i>
-                        </a>
-                    </div>
 
                 </div>
                         </div>
@@ -119,6 +107,20 @@
                    </div>
         </div>
     </section>
+    <div class="modal" id="empModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div><!-- #page -->
 
 <?php wp_footer(); ?>
