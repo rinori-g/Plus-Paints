@@ -21,15 +21,15 @@ $subCategories = get_terms( 'category', array(
 ?>
 
 <div style="height : 500px;"></div>
-<main id="primary" class="site-main">
+<main id="primary " class="site-main">
 
-    <ul class="nav nav-pills container">
+    <ul class="nav nav-pills container filter-cont">
         <li class="nav-item">
-            <a class="nav-link active" data-toggle="pill" href="#productTabMain" role="tab" aria-controls="pills-flamingo" aria-selected="true">Te gjitha</a>
+            <a class="nav-link active btn99" data-toggle="pill" href="#productTabMain" role="tab" aria-controls="pills-flamingo" aria-selected="true">Te gjitha</a>
         </li>
         <?php foreach ($subCategories as $key => $category):?>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="pill" href="#productTab<?php echo $key;?>" role="tab" aria-controls="pills-flamingo" aria-selected="true"><?php echo $category->name;?></a>
+                <a class="nav-link btn99" data-toggle="pill" href="#productTab<?php echo $key;?>" role="tab" aria-controls="pills-flamingo" aria-selected="true"><?php echo $category->name;?></a>
             </li>
         <?php endforeach; ?>
     </ul>

@@ -35,7 +35,7 @@
                     </div>
                     <div class="footerbtt ">
                     <div class="brand-button ">
-                    <a href="contact.php">  <button href=""><?php pll_e('Na kontaktoni!');?><span class="arrow"><i class="fas fa-chevron-right"></i></span></button></a>
+                    <a href="kontakt">  <button href=""><?php pll_e('Na kontaktoni!');?><span class="arrow"><i class="fas fa-chevron-right"></i></span></button></a>
                      </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@
                       <?php if (have_rows('footer_social_media','option')): ?>
                           <?php while (have_rows('footer_social_media','option')) : the_row(); ?>
                               <div class="icon">
-                                  <a href="https://www.facebook.com/pluspaintss" target="_blank">
+                                  <a href="https://www.facebook.com/pluspaintss" target="_blank" style="color:white;">
                                       <?php the_sub_field('icon');?>
                                   </a>
                               </div>

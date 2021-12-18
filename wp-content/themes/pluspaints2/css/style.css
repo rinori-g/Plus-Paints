@@ -1136,6 +1136,7 @@ KONTAKT /////////////////////////////////////////////////////////////////*/
         max-height: 540px !important;
         overflow: auto;
         margin-top: -50px;
+        right: 50%;
     }
     .modal-dialog {
         width: 1100px !important;
@@ -1163,7 +1164,7 @@ KONTAKT /////////////////////////////////////////////////////////////////*/
 .btn99 {
     width: 147px;
     height: 54px;
-    border-radius: 10px;
+    border-radius: 10px!important;
     font-family: 'Montserrat';
     font-size: 20px;
     border: solid 3px transparent;
@@ -1174,6 +1175,10 @@ KONTAKT /////////////////////////////////////////////////////////////////*/
     margin-right: 38px;
     margin-bottom: 60px;
     cursor: pointer;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn99:hover {
@@ -1952,7 +1957,7 @@ form .button-area {
     justify-content: center;
 }
 
-.button-area button {
+.button-area input[type=submit] {
     color: #fff;
     border: none;
     outline: none;
@@ -1965,9 +1970,14 @@ form .button-area {
     border-radius: 10px;
     width: 220px;
     height: 60px;
+    margin-bottom: 20px;
 }
 
-.button-area button:hover {
+.menu-item-505 {
+    margin-right: 60px!important;
+}
+
+.button-area input[type=submit]:hover {
     background: linear-gradient(90deg, #D5ACA9 0%, #6B9EBF 100%);
 }
 
@@ -2508,7 +2518,7 @@ form .button-area {
         align-items: center;
         justify-content: center;
     }
-    #myBtnContainer {
+    .filter-cont {
         display: grid;
         grid-column-gap: 35px;
         grid-row-gap: 15px;
@@ -2519,6 +2529,9 @@ form .button-area {
         align-items: center;
         text-align: center;
         margin-bottom: 30px;
+    }
+    .wpcf7 {
+        padding: 2px!important;
     }
     .product {
         display: grid;
@@ -2617,7 +2630,8 @@ form .button-area {
         padding-top: 10px;
     }
     .modal-header {
-        padding: 0 !important;
+        padding: 0;
+        padding-right: 10px;
     }
     .katallogu {
         width: 100%;
@@ -3124,7 +3138,7 @@ form .button-area {
     }
     form .field input,
     form .message textarea {
-        padding: 2px 18px 0 18px;
+        padding: 2px 78px 0 18px;
     }
     .btn99 {
         width: 115px;

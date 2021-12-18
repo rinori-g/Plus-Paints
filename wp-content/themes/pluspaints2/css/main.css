@@ -167,7 +167,7 @@ header {
 .nav__menu .dropdown li a {
     display: block;
     font-size: 15px;
-    color: #222;
+    color: #222!important;
     text-decoration: none
 }
 
@@ -177,7 +177,7 @@ header {
 
 .nav__menu .dropdown>a:after {
     content: "\f107";
-    font-family: Font Awesome\ 5 Free;
+    font-family: Font Awesome;
     font-weight: 900;
     font-size: 16px;
     padding-left: 5px;
@@ -186,12 +186,12 @@ header {
 
 .nav__menu .active.dropdown>a:after {
     content: "\f106" !important;
-    font-family: Font Awesome\ 5 Free;
+    font-family: Font Awesome;
 }
 
 .nav__menu .dropdown .dropdown>a:after {
-    content: "\f107";
-    font-family: Font Awesome\ 5 Free;
+    content: "\f078";
+    font-family: Font Awesome;
     font-weight: 900;
     font-size: 16px;
     padding-left: 5px;
@@ -334,7 +334,7 @@ header {
     .nav__menu li a {
         font-family: Montserrat;
         font-style: normal;
-        font-weight: 300;
+        font-weight: 400;
         font-size: 19px;
         line-height: 24px;
         text-align: center;
@@ -463,7 +463,7 @@ header {
     .fx {
         background: white;
     }
-    .textcolor1 {
+    .nav__menu .dropdown ul li a {
         color: black !important;
         font-weight: 400 !important;
     }
