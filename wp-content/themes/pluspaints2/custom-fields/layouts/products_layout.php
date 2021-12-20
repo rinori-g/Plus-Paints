@@ -17,7 +17,7 @@
         <?php endif; ?>
     </div>
     <div class="brand-button container">
-        <a href="<?php the_sub_field('url');?>"> <button ><?php the_sub_field('button_text');?><span class="arrow"><i class="fas fa-chevron-right"></span></i></button></a>
+        <a href="<?php the_sub_field('url');?>"> <button ><?php the_sub_field('button_text');?><span class="arrow"><i class="fa fa-chevron-right"></span></i></button></a>
     </div>
 </section>
 

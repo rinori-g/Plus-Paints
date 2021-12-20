@@ -274,13 +274,19 @@ function register_strings()
 {
     pll_register_string('', 'Jeni konfuz se kush do të kujdeset për punën tuaj?','pluspaints');
     pll_register_string('', 'Rreth kompanisë','pluspaints');
-    pll_register_string('', 'Linqet e shpejta ','pluspaints');
+    pll_register_string('', 'Linqet e shpejta','pluspaints');
     pll_register_string('', 'Linqe','pluspaints');
     pll_register_string('', 'Na ndiqni','pluspaints');
     pll_register_string('', 'Copyright © 2021 All rights Reserved by Plus Paints','pluspaints');
     pll_register_string('', 'Na kontaktoni!','pluspaints');
-
-
+	pll_register_string('', 'MBËSHTETJA TEKNIKE','pluspaints');
+	pll_register_string('', 'Jeni përdorues profesionist apo keni nevojë për këshilla teknike?','pluspaints');
+	pll_register_string('', 'Si doni të na kontaktoni?','pluspaints');
+	pll_register_string('', 'NA SHKRUANI NË WHATSAPP','pluspaints');
+	pll_register_string('', 'PLOTËSONI FORMULARIN','pluspaints');
+	pll_register_string('', 'NA KONTAKTONI','pluspaints');
+	pll_register_string('', 'Te gjitha','pluspaints');
+	
 }
 
 

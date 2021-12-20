@@ -177,8 +177,8 @@ header {
 
 .nav__menu .dropdown>a:after {
     content: "\f107";
-    font-family: Font Awesome;
-    font-weight: 900;
+    font-family: FontAwesome;
+    font-weight: 500;
     font-size: 16px;
     padding-left: 5px;
     color: #7e7e7e
@@ -186,13 +186,13 @@ header {
 
 .nav__menu .active.dropdown>a:after {
     content: "\f106" !important;
-    font-family: Font Awesome;
+    font-family: FontAwesome;
 }
 
 .nav__menu .dropdown .dropdown>a:after {
     content: "\f078";
-    font-family: Font Awesome;
-    font-weight: 900;
+    font-family: FontAwesome;
+    font-weight: 500;
     font-size: 16px;
     padding-left: 5px;
     color: #7e7e7e
@@ -200,7 +200,7 @@ header {
 
 .nav__menu .dropdown:hover>a:after {
     content: "\f106" !important;
-    font-family: Font Awesome\ 5 Free;
+    font-family: FontAwesome;
 }
 
 .menu-toggle {
@@ -331,6 +331,9 @@ header {
         white-space: nowrap;
         padding: 1rem
     }
+    .menu-item-631 {
+        margin-right: 80px!important;
+    }
     .nav__menu li a {
         font-family: Montserrat;
         font-style: normal;
@@ -410,8 +413,8 @@ header {
     }
     .nav__menu .dropdown:hover>a:after,
     .nav__menu .dropdown>a:after {
-        font-family: Font Awesome\ 5 Free;
-        font-weight: 900;
+        font-family: FontAwesome;
+        font-weight: 500;
         font-size: 16px;
         padding-left: 5px;
         color: #7c7c7c
@@ -424,8 +427,8 @@ header {
     }
     .nav__menu .dropdown .dropdown:hover>a:after,
     .nav__menu .dropdown .dropdown>a:after {
-        font-family: Font Awesome\ 5 Free;
-        font-weight: 900;
+        font-family: FontAwesome;
+        font-weight: 500;
         font-size: 16px;
         padding-left: 10px;
         color: rgb(10, 10, 10)

@@ -16,16 +16,22 @@ get_header();
 
 $subCategories = get_terms( 'category', array(
     'child_of'    => get_queried_object_id(),
+    'posts_per_page' => -1,
     'hide_empty' => false
 ) );
 ?>
 
-<div style="height : 500px;"></div>
 <main id="primary " class="site-main">
-
+    <section class="sherbimet">
+            <div class="sherbimet-foto " style="background-image: linear-gradient(rgba(107, 158, 191, 0.6), rgba(107, 158, 191, 0.6)), url(<?php the_field('banner_image',get_queried_object())?>);">
+            <div class="head">
+                <p><?php the_field('banner_title',get_queried_object())?></p>
+            </div>
+        </div>
+</section>
     <ul class="nav nav-pills container filter-cont">
         <li class="nav-item">
-            <a class="nav-link active btn99" data-toggle="pill" href="#productTabMain" role="tab" aria-controls="pills-flamingo" aria-selected="true">Te gjitha</a>
+            <a class="nav-link active btn99" data-toggle="pill" href="#productTabMain" role="tab" aria-controls="pills-flamingo" aria-selected="true"><?php pll_e('Te gjitha')?></a>
         </li>
         <?php foreach ($subCategories as $key => $category):?>
             <li class="nav-item">
@@ -38,14 +44,16 @@ $subCategories = get_terms( 'category', array(
             <?php
 
             $posts = get_posts([
-                'category' => get_queried_object_id()
+                'category' => get_queried_object_id(),
+                'posts_per_page' => -1
+
             ]);
             ?>
             <section class="products">
 
                 <div class="product container">
                     <?php foreach ($posts as $post):?>
-                        <div class="product-card">
+                        <div class="product-card product-info-description" data-id="<?php echo $post->ID; ?>" >
                             <div class="product-image">
                                 <img src="<?php echo  wp_get_attachment_url( get_post_thumbnail_id(get_sub_field('product')) ); ?>" alt="" data-id="1" class="polistucinfo ">
                             </div>
@@ -66,7 +74,8 @@ $subCategories = get_terms( 'category', array(
                 <?php
 
                 $posts = get_posts([
-                    'category' => $category->term_id
+                    'category' => $category->term_id,
+                    'posts_per_page' => -1
                 ]);
                 ?>
 

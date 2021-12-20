@@ -10,18 +10,70 @@
  */
 
 ?>
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <div class="techsupport">
             <div class="support" onclick="document.getElementById('id01').style.display='block'">
                 <div class="heading" id="myBtn">
-                MBËSHTETJA TEKNIKE
+                <?php pll_e('MBËSHTETJA TEKNIKE');?>
                 </div>
                 <div class="desc">
-                Jeni përdorues profesionist apo keni nevojë për këshilla teknike?<strong> Na kontaktoni!</strong>
+                <?php pll_e('Jeni përdorues profesionist apo keni nevojë për këshilla teknike?');?><strong> <?php pll_e('Na kontaktoni!');?></strong>
                 </div>
             </div>
         </div>
+
+        <div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4">
+  
+        <span onclick="document.getElementById('id01').style.display='none'" 
+        class="w3-button w3-display-topright" style="position:absolute; z-index:100; background:transparent;font-size:33px; color:white;padding: 8px 24px;">&times;</span>
+        <div class="chatsupport">
+          <div class="suppimage">
+              <img src="<?php the_field('chat_support_image','option')?>" alt="">
+              <div class="supportdesc">
+                  <div class="heading">
+                  <?php pll_e('MBËSHTETJA TEKNIKE');?> 
+                  </div>
+                  <div class="desc">
+                  <?php pll_e('Si doni të na kontaktoni?');?>
+                  </div>
+              </div>
+          </div>
+          <div class="supoption">
+              <div class="whatsapp">
+                    <div class="heading">
+                    <?php pll_e('NA SHKRUANI NË WHATSAPP');?>
+                    
+                    </div>
+                    <div class="buttoni">
+                        <a href="https://wa.me/<?php the_field('chat_support_number','option')?>"><button><i class="fa fa-whatsapp"></i><?php pll_e('NA KONTAKTONI');?></button></a>
+                    </div>  
+              </div>
+              <div class="contact-form">
+              <div class="heading">
+                    <?php pll_e('PLOTËSONI FORMULARIN');?>
+                    </div>
+                    <div class="buttoni">
+                        <a href="<?php the_field('chat_support_contact_page_'.get_bloginfo('language'),'option')?>"><button><i class="fa fa-envelope"></i><?php pll_e('NA KONTAKTONI');?></button></a>
+                    </div>
+              </div>
+          </div>
+          </div>
+     
+    </div>
+  </div>
+</div>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
 
     <section class="footer11">
         <div class="footer-content ">
@@ -35,7 +87,7 @@
                     </div>
                     <div class="footerbtt ">
                     <div class="brand-button ">
-                    <a href="kontakt">  <button href=""><?php pll_e('Na kontaktoni!');?><span class="arrow"><i class="fas fa-chevron-right"></i></span></button></a>
+                    <a href="kontakt">  <button href=""><?php pll_e('Na kontaktoni!');?><span class="arrow"><i class="fa fa-chevron-right"></i></span></button></a>
                      </div>
                     </div>
                 </div>

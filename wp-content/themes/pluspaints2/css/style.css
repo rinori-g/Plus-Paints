@@ -511,6 +511,14 @@ ul {
     padding-top: 40px;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: Montserrat!important;
+}
+
 .aboutcompany .desc {
     font-family: Montserrat;
     font-style: normal;
@@ -783,7 +791,7 @@ ul {}
     text-align: center;
     justify-content: center;
     align-items: center;
-    height: 437px;
+    height: 410px;
 }
 
 
@@ -1623,10 +1631,26 @@ KONTAKT /////////////////////////////////////////////////////////////////*/
     flex-direction: column;
     left: 35%;
     width: 100px;
+    bottom: 0px;
     height: 300px;
     margin-bottom: 0;
     background: #616362;
     border-top-right-radius: 10px;
+}
+
+.carousel-indicators li {
+    position: relative;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    margin-top: 32px;
+    width: 30px;
+    margin-bottom: 16px;
+    height: 3px;
+    margin-right: 44px;
+    margin-left: 20px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, .5);
 }
 
 .carousel-indicators [data-bs-target] {
@@ -1987,9 +2011,24 @@ form .button-area {
     display: none;
 }
 
+.carousel-control-prev {
+    left: 60%;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    top: 83%;
+}
+
 @media (max-width: 600px) {
     .wrapper header {
         text-align: center;
+    }
+    .carousel-indicators li {
+        margin-top: 17px;
+        margin-bottom: 8px;
+        margin-right: 56px;
+        margin-left: 21px;
     }
     .wrapper form {
         margin: 35px 20px;
@@ -2059,7 +2098,7 @@ form .button-area {
 
 @media only screen and (max-width: 700px) {
     body {
-        padding-top: 86px;
+        padding-top: 43px;
     }
     .copyright {
         width: 100%;
@@ -2278,6 +2317,7 @@ form .button-area {
         margin-bottom: 0;
         width: 100%;
         align-items: center;
+        padding-left: 30px;
     }
     .footer11 .footer-content2 .footer-inter2 .logoja .img2 {
         padding: 32px 30px 30px 10px;
@@ -2300,6 +2340,9 @@ form .button-area {
         width: 100%;
         object-fit: contain;
         margin-top: 40px;
+    }
+    .ourwork {
+        margin: 25px 0;
     }
     .index-content .content .image-content img {
         display: flex;
@@ -2359,7 +2402,7 @@ form .button-area {
         background-color: white;
     }
     .w3-modal {
-        padding-top: 98px !important;
+        padding-top: 115px !important;
     }
     .supoption {
         flex-direction: column;
@@ -2553,8 +2596,30 @@ form .button-area {
     }
     .product-desc {
         height: 54px;
-        font-size: 15px;
-        padding: 3px 25px 25px 25px;
+        font-size: 12px;
+        padding: 3px 11px 20px 12px;
+    }
+    .wrapper {
+        width: 100%;
+        background: #4c6c81;
+        height: 643px!important;
+        padding: 1px;
+    }
+    .index-content {
+        margin-top: 20px;
+    }
+    .index-content .content .text-content .desc h3 {
+        font-size: 40px;
+        padding-top: 10px;
+    }
+    .index-content .content .text-content p {
+        font-size: 17px;
+        padding-top: 0px;
+        line-height: 24px;
+    }
+    h3 {
+        font-size: 25px;
+        width: 95%;
     }
     .card-imp {
         height: 63px;
@@ -2584,6 +2649,7 @@ form .button-area {
     }
     .brand-button {
         margin-bottom: 40px;
+        padding-left: 30px!important;
     }
     .brand-button .arrow {
         ;
@@ -2737,13 +2803,18 @@ form .button-area {
         color: rgb(0, 0, 0) !important;
     }
     .ourwork_content .heading {
-        margin-left: 72px;
+        margin-left: 0px;
     }
     .work_image img {
         height: 215px;
     }
     .lftbtt {
-        margin-left: 50px;
+        margin-left: 0px;
+    }
+    .ourwork {
+        margin: 80px 0;
+        width: 91%;
+        float: right;
     }
     .copyrt {
         font-size: 15px;
@@ -2751,6 +2822,18 @@ form .button-area {
         height: auto;
         margin-top: 15px;
         margin-bottom: 75px;
+    }
+    .brendet .brendet-content {
+        width: 76%;
+    }
+    .carousel-indicators li {
+        margin-top: 16px;
+    }
+    .ourwork_images {
+        padding-left: 0px;
+    }
+    .index-content .content .text-content .desc h3 {
+        font-size: 40px;
     }
     .footerabout {
         height: auto;
@@ -2773,10 +2856,14 @@ form .button-area {
         padding-top: 30px;
         font-size: 27px;
     }
+    .work_image {
+        height: 166px;
+        width: 163px;
+    }
     .company {
         display: flex;
         flex-direction: column;
-        width: 44%;
+        width: 80%;
         padding-top: 28px;
         align-items: left;
     }
@@ -2989,7 +3076,7 @@ form .button-area {
         background-color: white;
     }
     .w3-modal {
-        padding-top: 98px !important;
+        padding-top: 114px !important;
     }
     .supoption {
         flex-direction: column;
@@ -3149,7 +3236,11 @@ form .button-area {
         align-items: center;
         justify-content: center;
     }
-    #myBtnContainer {
+    .modal-dialog {
+        margin: 104px auto !important;
+        left: 14%;
+    }
+    .nav-pills {
         display: grid;
         grid-column-gap: 35px;
         grid-row-gap: 15px;
@@ -3181,8 +3272,8 @@ form .button-area {
     }
     .product-desc {
         height: 54px;
-        font-size: 15px;
-        padding: 3px 25px 25px 25px;
+        font-size: 14px;
+        padding: 3px 5px 6px 5px;
     }
     .card-imp {
         height: 63px;
@@ -3245,7 +3336,7 @@ form .button-area {
     .modal-header .close {
         opacity: 1 !important;
         font-size: 35px !important;
-        padding-right: 10px;
+        padding-right: 30px;
         padding-top: 10px;
     }
     .modal-header {
@@ -3296,6 +3387,7 @@ form .button-area {
     }
     .carousel-item .carousel-caption .textalign {
         width: 80%;
+        margin-top: -35px;
     }
     .carousel-caption h5 {
         font-size: 28px;
