@@ -138,7 +138,7 @@ window.onclick = function(event) {
                       <?php if (have_rows('footer_social_media','option')): ?>
                           <?php while (have_rows('footer_social_media','option')) : the_row(); ?>
                               <div class="icon">
-                                  <a href="https://www.facebook.com/pluspaintss" target="_blank" style="color:white;">
+                                  <a href="  <?php the_sub_field('url');?>" target="_blank" style="color:white;">
                                       <?php the_sub_field('icon');?>
                                   </a>
                               </div>
